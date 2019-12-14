@@ -118,7 +118,14 @@ namespace LeerlingLijst
             foreach(string i in toSort.Keys)
             {
                 SortedDictionary<string, List<string>> groups;
-                fileName = $"{folder}/{klassen[i]}.json";
+                if (klassen.ContainsKey(i))
+                {
+                    fileName = $"{folder}/{klassen[i]}.json";
+                }
+                else
+                {
+                    fileName = $"{folder}/{i}.json";
+                }
                 if (!Directory.Exists(folder))
                 {
                     Directory.CreateDirectory(folder);
